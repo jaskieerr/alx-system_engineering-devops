@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#i smell fizz buzz
+fizzap=0
+
+while [ $fizzap -lt 10 ]
+do
+  if [ $fizzap -eq 3 ]
+  then
+    echo "bad luck"
+  elif [ $fizzap -eq 7 ]
+  then
+    echo "good luck"
+  else
+    echo "Best School"
+  fi
+  (( fizzap++ ))
+done
