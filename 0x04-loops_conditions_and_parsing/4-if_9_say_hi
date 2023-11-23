@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#echo bestsch but 9th iteration echo hi
+hi=1
+while [ $hi -le 10 ]
+do
+	echo "Best School"
+	if [ $hi -eq 9 ]; then
+	   echo "Hi"
+	fi
+	hi=$((hi+1))
+done
