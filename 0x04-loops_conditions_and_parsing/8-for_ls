@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # echos wd where only  part after dash is displayed
-for i in *; do
-    echo "$i" | cut -d '-' -i 2
+for f in *; do
+    echo "$f" | cut -d '-' -f 2
 done
