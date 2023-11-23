@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# i should try fizzbuzzin in assembly
+for ((fizz=1;fizz<=100;fizz++))
+do
+    if ((fizz % 15 == 0))
+    then
+        echo "FizzBuzz"
+    elif ((fizz % 3 == 0))
+    then
+        echo "Fizz"
+    elif ((fizz % 5 == 0))
+    then
+        echo "Buzz"
+    else
+        echo "$fizz"
+    fi
+done
