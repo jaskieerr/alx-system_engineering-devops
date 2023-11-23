@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#echoing cursed numbers from diffrent countries
+#but im  suprise number 7 and 13 arent on  the list
+#what a shame 
+#the groomsbride is a w****
+#i chimed in with a havent u  people ever
+#heaaaard offff
+panic=1
+while [ $panic -le 20 ]
+do
+  echo "$panic"
+  case $panic in
+    "4") echo "bad luck from China";;
+    "9") echo "bad luck from Japan";;
+    "17") echo "bad luck from Italy";;
+  esac
+  (( panic++ ))
+done
