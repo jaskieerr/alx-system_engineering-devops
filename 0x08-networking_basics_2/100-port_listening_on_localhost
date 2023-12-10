@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# Script brgag
-nc -l 98
