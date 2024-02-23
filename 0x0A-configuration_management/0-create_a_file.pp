@@ -1,8 +1,9 @@
-file { '/tmp/school':
-  ensure   => file,
-  checksum => 'md5',
-  content  => 'I love Puppet',
-  mode     => '0744',
-  owner    => 'www-data',
-  group    => 'www-data',
-  }
+# test cmnt
+
+file { '/tmp/school' :
+    path    => '/tmp/school',
+    mode    => '0744',
+    owner   => 'www-data',
+    group   => 'www-data',
+    content => 'I love Puppet',
+    }
