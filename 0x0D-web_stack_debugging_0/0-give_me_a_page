@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# Gettin get Apache to run on the container  yadiyadiyada
-
-echo "ServerName localhost" >> /etc/apache2.conf
-service apache2 start
