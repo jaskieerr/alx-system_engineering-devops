@@ -1,14 +1,38 @@
 #!/usr/bin/python3
-'''fetches emloyee stuff'''
-import requests
+'''fetches data from jasonsomethying'''
+
+import json
 import sys
+import urllib.request
 
 if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com/"
-    employee = requests.get(url + "employee/{}".format(sys.argv[1])).json()
-    tasks = requests.get(url + "tasks", params={"employee id": sys.argv[1]}).json()
+    ID = sys.argv[1]
 
-    completed = [t.get("title") for t in tasks if t.get("completed") is True]
+    data = urllib.request.urlopen(
+            "https://jsonplaceholder.typicode.com/users/{}/".format(
+                ID))
+    tasks = urllib.request.urlopen(
+            "https://jsonplaceholder.typicode.com/users/{}/todos/".format(
+                ID))
+
+    data_dict = json.loads(data.read().decode())
+    tasks_dict = json.loads(tasks.read().decode())
+
+    tasks_done = 0
+    all_tasks = 0
+    done_list = []
+    for tasku in tasks_dict:
+        if tasku["completed"] is True:
+            done_list.append(tasku)
+            tasks_done += 1
+        all_tasks += 1
+
+    EMPLOYEE_NAME = data_dict["name"]
+
     print("Employee {} is done with tasks({}/{}):".format(
-        employee.get("name"), len(completed), len(tasks)))
-    [print("\t {}".format(c)) for c in completed]
+        EMPLOYEE_NAME,
+        tasks_done,
+        all_tasks))
+
+    for tasku in done_list:
+        print("\t {}".format(tasku["title"]))
