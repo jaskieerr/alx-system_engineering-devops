@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''exportin to JSON'''
+'''Exporting to JSON'''
 
 import json
 import sys
@@ -8,24 +8,13 @@ import urllib.request
 if __name__ == "__main__":
     ID = sys.argv[1]
 
-    data = urllib.request.urlopen(
-        "https://jsonplaceholder.typicode.com/users/{}/".format(
-            ID))
-    taks = urllib.request.urlopen(
-        "https://jsonplaceholder.typicode.com/users/{}/todos/".format(
-            ID))
+    employee_data = urllib.request.urlopen(
+        "https://jsonplaceholder.typicode.com/users/{}".format(ID))
+    tasks = urllib.request.urlopen(
+        "https://jsonplaceholder.typicode.com/users/{}/todos".format(ID))
 
     data_dict = json.loads(employee_data.read().decode())
-    tasks_dict = json.loads(taks.read().decode())
-
-    task_done_count = 0
-    total_tasks = 0
-    completed_tasks = []
-    for tasku in tasks_dict:
-        if tasku["completed"] is True:
-            completed_tasks.append(tasku)
-            task_done_count += 1
-        total_tasks += 1
+    tasks_dict = json.loads(tasks.read().decode())
 
     EMPLOYEE_NAME = data_dict["name"]
     USERNAME = data_dict["username"]
@@ -38,7 +27,7 @@ if __name__ == "__main__":
                 "completed": task["completed"],
                 "username": USERNAME
             }
-            for task in tasks_dict  # completed_tasks
+            for task in tasks_dict
         ]
     }
 
